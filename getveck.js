@@ -1,25 +1,32 @@
 const veckurl = "https://cdn.jsdelivr.net/gh/suppressfinallygotgh/smashkarts@main/veck.js?1=" + Date.now();
 const smashkartsurl = "https://cdn.jsdelivr.net/gh/suppressfinallygotgh/smashkarts@main/main.js?1=" + Date.now();
 
-const website = document.location.host
-let URL
-console.log(website)
+const website = window.location.hostname;
+let URL;
+console.log("Current website:", website);
+
 switch (website) {
-  case "https://veck.io":
-    URL = veckurl
+  case "veck.io":
+    URL = veckurl;
     break;
-  case "https://smashkarts.io":
-    URL = smashkartsurl
+  case "smashkarts.io":
+    URL = smashkartsurl;
     break;
+  default:
+    console.warn("No URL found for this site");
 }
-console.log(URL)
-fetch(URL)
-  .then(r => r.text())
-  .then(code => {
-    try {
-      Function(code)();
-    } catch (e) {
-      console.error(e);
-    }
-  })
-  .catch(console.error);
+
+console.log("Fetching URL:", URL);
+
+if (URL) {
+  fetch(URL)
+    .then(r => r.text())
+    .then(code => {
+      try {
+        Function(code)();
+      } catch (e) {
+        console.error("Error executing fetched code:", e);
+      }
+    })
+    .catch(console.error);
+}
