@@ -33,16 +33,6 @@ if (!config) {
 
   (async () => {
     await loadScript(versionUrl);
-
-    await new Promise(resolve => {
-      const interval = setInterval(() => {
-        if (window.UnityWebModkit && UnityWebModkit.Runtime) {
-          clearInterval(interval);
-          resolve();
-        }
-      }, 50);
-    });
-
     await loadScript(mainUrl);
   })();
 }
