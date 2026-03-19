@@ -25,9 +25,8 @@ if (!config) {
     try {
       const res = await fetch(url);
       const code = await res.text();
-      const script = document.createElement("script");
-      script.textContent = code;
-      document.documentElement.appendChild(script);
+      (0, eval)(code);
+  
       console.log("Loaded script:", url);
     } catch (err) {
       console.error("Failed to load script:", url, err);
