@@ -30,7 +30,9 @@ if (!config) {
   }
 
   (async () => {
+    console.log("rawr1")
     await fetchAndRun(versionUrl);
+    console.log("rawr2")
     await fetchAndRun(mainUrl);
   })();
 }
