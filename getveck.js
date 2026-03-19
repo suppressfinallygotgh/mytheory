@@ -8,6 +8,7 @@ const siteConfig = {
     metadata: "https://raw.githubusercontent.com/TJGTA3/filehostalskdfjkalsjflaksdjf/refs/heads/main/metadata31fixed5"
   }
 };
+
 const website = window.location.hostname;
 const config = siteConfig[website];
 
@@ -17,22 +18,31 @@ if (!config) {
   const versionUrl = `${config.metadata}?t=${Date.now()}`;
   const mainUrl = `${config.mainScript}?t=${Date.now()}`;
 
-  async function fetchAndRun(scriptUrl) {
-    if (!scriptUrl) return;
+  async function loadScript(url) {
     try {
-      const res = await fetch(scriptUrl);
+      const res = await fetch(url);
       const code = await res.text();
-      Function(code)();
-      console.log(`Executed script: ${scriptUrl}`);
-    } catch (e) {
-      console.error(`Error fetching/executing ${scriptUrl}:`, e);
+      const script = document.createElement("script");
+      script.textContent = code;
+      document.documentElement.appendChild(script);
+      console.log("Loaded script:", url);
+    } catch (err) {
+      console.error("Failed to load script:", url, err);
     }
   }
 
   (async () => {
-    console.log("rawr1")
-    await fetchAndRun(versionUrl);
-    console.log("rawr2")
-    await fetchAndRun(mainUrl);
+    await loadScript(versionUrl);
+
+    await new Promise(resolve => {
+      const interval = setInterval(() => {
+        if (window.UnityWebModkit && UnityWebModkit.Runtime) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, 50);
+    });
+
+    await loadScript(mainUrl);
   })();
 }
