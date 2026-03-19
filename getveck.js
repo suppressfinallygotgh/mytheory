@@ -23,6 +23,8 @@ switch (website) {
     console.warn("No URL found for this site");
 }
 
+console.log(version)
+
 async function fetchAndRun(scriptUrl) {
   if (!scriptUrl) return;
   try {
