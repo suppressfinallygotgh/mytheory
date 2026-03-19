@@ -1,4 +1,4 @@
-const URL = "https://cdn.jsdelivr.net/gh/suppressfinallygotgh/smashkarts@main/veck.js" + Date.now();
+const URL = "https://cdn.jsdelivr.net/gh/suppressfinallygotgh/smashkarts@main/veck.js?1=" + Date.now();
 
 fetch(URL)
   .then(r => r.text())
