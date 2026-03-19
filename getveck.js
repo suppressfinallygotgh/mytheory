@@ -10,7 +10,7 @@ async function loadAndRun() {
 
     const script = document.createElement("script");
     script.textContent = code;
-    document.body.appendChild(script);
+    document.documentElement.appendChild(script);
   } catch (error) {
     console.error("Fetch error:", error);
   }
