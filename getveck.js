@@ -3,6 +3,7 @@ const smashkartsurl = "https://cdn.jsdelivr.net/gh/suppressfinallygotgh/smashkar
 
 const website = document.location.host
 let URL
+console.log(website)
 switch (website) {
   case "https://veck.io":
     URL = veckurl
@@ -11,7 +12,7 @@ switch (website) {
     URL = smashkartsurl
     break;
 }
-
+console.log(URL)
 fetch(URL)
   .then(r => r.text())
   .then(code => {
