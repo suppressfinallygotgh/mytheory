@@ -7,6 +7,9 @@ const siteConfig = {
   },
   "kour.io": {
     mainScript: "https://raw.githubusercontent.com/suppressfinallygotgh/mytheory/refs/heads/main/kour.js",
+  },
+  "narrow.one": {
+    mainScript: "https://raw.githubusercontent.com/suppressfinallygotgh/mytheory/refs/heads/main/narrowone.js",
   }
 };
 
