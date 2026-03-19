@@ -1,10 +1,10 @@
 const siteConfig = {
   "veck.io": {
-    mainScript: "https://cdn.jsdelivr.net/gh/suppressfinallygotgh/mytheory@main/veck.js",
+    mainScript: "https://raw.githubusercontent.com/suppressfinallygotgh/mytheory/refs/heads/main/veck.js",
     metadata: "https://raw.githubusercontent.com/TJGTA3/filehostalskdfjkalsjflaksdjf/refs/heads/main/metadata39fixed67hehe"
   },
   "smashkarts.io": {
-    mainScript: "https://cdn.jsdelivr.net/gh/suppressfinallygotgh/mytheory@main/sk.js",
+    mainScript: "https://raw.githubusercontent.com/suppressfinallygotgh/mytheory/refs/heads/main/sk.js",
     metadata: "https://raw.githubusercontent.com/TJGTA3/filehostalskdfjkalsjflaksdjf/refs/heads/main/metadata31fixed5"
   }
 };
